@@ -13,8 +13,8 @@ const signinSchema = z.object({
 
 export default function Signin(){
     const { signin } = useAuth();
-    const [firebaseError, setFirebaseError] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [ firebaseError, setFirebaseError ] = useState('');
+    const [ loading, setLoading ] = useState(false);
     const navigate = useNavigate();
 
     const {

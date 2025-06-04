@@ -4,12 +4,14 @@ import AccountPage from './components/AccountPage/AccountPage.js';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './contexts/AuthContext.js';
 import Signin from './components/Signin/Signin.js';
+import TopNav from './components/TopNav/TopNav.js';
+import "./styles/shared.scss"
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-          <nav>topnav</nav>
+          <TopNav/>
           <Routes>
               <Route path="/" element={<HomePage/>} />
               <Route path="/signup" element={<Signup />} />

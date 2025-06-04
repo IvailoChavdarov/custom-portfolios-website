@@ -1,0 +1,59 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+$topnav-padding-sides:35px;
+$transition-speed: 0.4s;
+
+#topnav{
+    width: 100%;
+    position: fixed;
+    line-height: 50px;
+    text-align: center;
+    -webkit-transition: all $transition-speed ease;
+    transition: all $transition-speed ease;
+    top:0;
+    z-index: 99;
+    padding-left: $topnav-padding-sides;
+    padding-right: $topnav-padding-sides;
+    font-family: "Quicksand", sans-serif;
+    color: $light;
+    a{
+        display: inline-block;
+        min-width: 85px;
+        font-size: 1.1rem;
+        margin:0 5px 0 5px; 
+        -webkit-transition: all $transition-speed ease;
+        transition: all $transition-speed ease;
+        &:hover{
+            color: $info;
+        } 
+    }
+    .account-links{
+        margin-left: auto;
+        color: $info;
+        a:hover{
+            color: $light;
+        }
+    }
+    .navbar-brand{
+        padding:0;
+    }
+}
+.topnav-transparent{
+    padding-top: 15px!important;
+    padding-bottom: 15px!important;
+}
+.topnav-solid{
+    background-color: $dark;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #topnav{
+    background-color:$dark;
+    padding-top:17px;
+  }
+  body {
+    background-color: lightblue;
+  }
+}
