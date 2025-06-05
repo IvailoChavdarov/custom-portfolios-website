@@ -1,3 +1,4 @@
+import Loader from "../components/Loader/Loader.js";
 import { useAuth } from "./AuthContext";
 import { Navigate } from "react-router-dom";
 
@@ -6,7 +7,7 @@ export default function AdminRoute({children}){
     if (!currentUser) {
         return <Navigate to="/signin" />;
     }
-    if (userIsAdmin === null) return <div>--- Loader ---</div>;
+    if (userIsAdmin === null) return <Loader/>;
     if (!userIsAdmin) {
         return <Navigate to="/unauthorized" />;
     }
