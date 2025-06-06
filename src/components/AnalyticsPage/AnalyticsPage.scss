@@ -1,0 +1,22 @@
+@import '~bootstrap/scss/bootstrap';
+
+.analytics-container{
+    display: flex;
+    color: $dark;
+    .analytic{
+        width: 500px;
+        margin:15px;
+        text-align: right;
+        h4{
+            text-align: left;
+        }
+    }
+    .users-count-box{
+        font-size: 100px;
+        font-weight: bolder;
+        margin-right: 30px;
+        display: inline-block;
+        margin-top:25px;
+        color: $info;
+    }
+}

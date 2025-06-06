@@ -1,3 +1,5 @@
+import "./AdminPanel.scss"
+
 function AdminPanel() {
   return (
     <>

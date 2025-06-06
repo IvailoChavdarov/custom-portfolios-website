@@ -9,6 +9,7 @@ import AccountPage from './components/AccountPage/AccountPage.js';
 import AdminPanel from './components/AdminPanel/AdminPanel.js';
 import AdminRoute from "./contexts/AdminRoute.js";
 import AdminLayout from "./layouts/AdminLayout/AdminLayout.js";
+import AnalyticsPage from "./components/AnalyticsPage/AnalyticsPage.js";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
               <Route path="/signin" element={<Signin />} />
               <Route path="/account" element={<AccountPage />} />
               <Route path="/admin" element={<AdminRoute><AdminLayout/></AdminRoute>}>
-                <Route path="" element={<AdminPanel/>}/>
+                <Route path="/admin/dashboard" element={<AdminPanel/>}/>
+                <Route path="/admin/analytics" element={<AnalyticsPage/>}/>
               </Route>
           </Routes>
       </BrowserRouter>
