@@ -18,11 +18,11 @@ const singupSchema = z.object({
         message:
             'Password must be at least 6 characters and contain an uppercase letter, lowercase letter, and number'
     }),
-  confirmPassword: z.string()
-}).refine(data => data.password === data.confirmPassword, {
-  message: "Passwords do not match",
-  path: ['confirmPassword'],
-});
+    confirmPassword: z.string()
+  }).refine(data => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ['confirmPassword'],
+  });
 
 export default function Signup(){
     const { signup } = useAuth();

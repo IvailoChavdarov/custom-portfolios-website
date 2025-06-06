@@ -1,0 +1,29 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+.sidebar-container{
+    display: flex;
+    position:fixed;
+    top:50px; 
+    height: 100vh;
+    overflow: scroll initial;
+}
+#admin-sidebar{
+    background-color:darken($dark, 7) ;
+    color: $light;
+    font-family: 'Quicksand', sans-serif;
+    padding-top: 15px;
+    .sidebar-top-text{
+        font-weight: 100;
+        margin-right: 10px;
+    }
+    a{
+        color:$info;
+        &:hover{
+            color: $light;
+        }
+    }
+    .active{
+        font-weight: bold;
+        color: $light;
+    }
+}

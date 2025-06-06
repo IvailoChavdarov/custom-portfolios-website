@@ -11,7 +11,6 @@ function Loader() {
       <div className="squre-frame"></div>
       <div className="squre-frame"></div>
     </div>
-
   );
 }
 

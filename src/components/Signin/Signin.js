@@ -34,15 +34,15 @@ export default function Signin(){
             navigate('/account');
         }
         catch (err) {
-            if(err.code === 'auth/invalid-credential'){
-              setFirebaseError('Wrong email or password');
-            }
-            else{
-              setFirebaseError('Sign in not successful');
-            }
+          if(err.code === 'auth/invalid-credential'){
+            setFirebaseError('Wrong email or password');
+          }
+          else{
+            setFirebaseError('Sign in not successful');
+          }
         }
         finally {
-            setLoading(false);
+          setLoading(false);
         }
     }
 

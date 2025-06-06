@@ -8,6 +8,7 @@ import HomePage from './components/Homepage/Homepage.js';
 import AccountPage from './components/AccountPage/AccountPage.js';
 import AdminPanel from './components/AdminPanel/AdminPanel.js';
 import AdminRoute from "./contexts/AdminRoute.js";
+import AdminLayout from "./layouts/AdminLayout/AdminLayout.js";
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/signin" element={<Signin />} />
               <Route path="/account" element={<AccountPage />} />
-              <Route path="/admin" element={<AdminRoute><AdminPanel/></AdminRoute>}/>
+              <Route path="/admin" element={<AdminRoute><AdminLayout/></AdminRoute>}>
+                <Route path="" element={<AdminPanel/>}/>
+              </Route>
           </Routes>
       </BrowserRouter>
     </AuthProvider>
