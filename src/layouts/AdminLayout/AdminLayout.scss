@@ -1,0 +1,6 @@
+.admin-body{
+    padding-left: 150px!important;
+}
+.sidebar-container:has(> .toggled) + .admin-body{
+    padding-left: 50px !important;
+}

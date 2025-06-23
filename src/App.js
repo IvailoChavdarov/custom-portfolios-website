@@ -22,7 +22,7 @@ function App() {
               <Route path="/signin" element={<Signin />} />
               <Route path="/account" element={<AccountPage />} />
               <Route path="/admin" element={<AdminRoute><AdminLayout/></AdminRoute>}>
-                <Route path="/admin/dashboard" element={<AdminPanel/>}/>
+                <Route path="/admin" element={<AdminPanel/>}/>
                 <Route path="/admin/analytics" element={<AnalyticsPage/>}/>
               </Route>
           </Routes>

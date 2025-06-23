@@ -20,8 +20,8 @@ function AdminSidebar(){
         </CDBSidebarHeader>
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink to="/admin/dashboard">
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+            <NavLink end to="/admin">
+              <CDBSidebarMenuItem icon="columns">Admin panel</CDBSidebarMenuItem>
             </NavLink>
             <NavLink to="/admin/analytics">
               <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
