@@ -26,6 +26,9 @@ function AdminSidebar(){
             <NavLink to="/admin/analytics">
               <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
             </NavLink>
+            <NavLink to="/admin/manage">
+              <CDBSidebarMenuItem icon="users">Users</CDBSidebarMenuItem>
+            </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
       </CDBSidebar>

@@ -1,0 +1,19 @@
+@import '~bootstrap/scss/bootstrap';
+.icon-field{
+    width: 50px;
+    text-align: center;
+    .dropdown-toggle{
+        color: rgba($dark, 0.7)!important;
+        &::after{
+            display: none!important;
+        }
+        &:hover{
+            color: rgba($dark, 1)!important;
+        }
+    }
+}
+.accordion-header{
+    button{
+        background-color: rgba($info, 0.5)!important;
+    }
+}
