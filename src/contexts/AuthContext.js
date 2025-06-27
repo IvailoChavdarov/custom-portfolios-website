@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import {auth} from '../firebase'
-import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { db } from "../firebase.js";
 import { doc, getDoc } from 'firebase/firestore';
 
@@ -26,6 +26,10 @@ export function AuthProvider({children}){
 
     function signin(email, password){
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    function resetPassword(email){
+        return sendPasswordResetEmail(auth, email)
     }
 
     //sets user data to use from components
@@ -54,7 +58,8 @@ export function AuthProvider({children}){
         userIsAdmin,
         signup,
         signout,
-        signin
+        signin,
+        resetPassword
     }
 
     return (

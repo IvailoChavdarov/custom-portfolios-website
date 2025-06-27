@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/Table';
 import { CDBIcon } from 'cdbreact';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-function UsersTable({ users, group, openDeleteModal }) {
+function UsersTable({ users, group, openDeleteModal, openPasswordResetModal }) {
 
 
     if (users.length === 0) return <div className="text-muted p-3">No users in this category</div>;
@@ -44,6 +44,12 @@ function UsersTable({ users, group, openDeleteModal }) {
                                         className="text-info"
                                     >
                                         Edit user
+                                    </Dropdown.Item>
+                                    <Dropdown.Item 
+                                        onClick={() => openPasswordResetModal(user.email)}
+                                        className="text-info"
+                                    >
+                                        Reset password
                                     </Dropdown.Item>
                                     <Dropdown.Item 
                                         onClick={() => console.log('Change Role', user.id)}

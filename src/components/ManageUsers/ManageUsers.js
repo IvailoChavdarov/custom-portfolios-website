@@ -7,6 +7,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import UsersTable from '../UsersTable/UsersTable.js';
 import Modal from 'react-bootstrap/Modal';
 import {Button} from 'react-bootstrap/';
+import { useAuth } from '../../contexts/AuthContext';
 import "./ManageUsers.scss";
 
 function ManageUsers() {
@@ -21,6 +22,7 @@ function ManageUsers() {
         recruiters: true,
         developers: true
     });
+    const {resetPassword} = useAuth();
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -67,7 +69,23 @@ function ManageUsers() {
         //Handle user deletion
     }
     
-    //todo: edit, change role functions, forgotten password
+
+    const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
+    const [userPasswordToResetEmail, setUserPasswordToResetEmail] = useState("");
+
+    function openPasswordResetModal(userEmail){
+       setShowResetPasswordModal(true);
+       setUserPasswordToResetEmail(userEmail);
+    }
+
+    const handleCloseResetPasswordModal = () => setShowResetPasswordModal(false);
+
+    function handleResetPassword(userId){
+        resetPassword(userId)
+        .then(()=>handleCloseResetPasswordModal());
+    }
+
+    //todo: edit, change role functions, forgotten password, user deletion
 
     if (loading) return <Loader />;
 
@@ -83,7 +101,7 @@ function ManageUsers() {
                         </div>
                     </Accordion.Header>
                     <Accordion.Body>
-                        <UsersTable users={userGroups.admins} group="admins" openDeleteModal={openDeleteModal}/>
+                        <UsersTable users={userGroups.admins} group="admins" openPasswordResetModal={openPasswordResetModal} openDeleteModal={openDeleteModal}/>
                     </Accordion.Body>
                 </Accordion.Item>
 
@@ -96,7 +114,7 @@ function ManageUsers() {
                         </div>
                     </Accordion.Header>
                     <Accordion.Body>
-                        <UsersTable users={userGroups.recruiters} group="recruiters" openDeleteModal={openDeleteModal}/>
+                        <UsersTable users={userGroups.recruiters} group="recruiters" openPasswordResetModal={openPasswordResetModal} openDeleteModal={openDeleteModal}/>
                     </Accordion.Body>
                 </Accordion.Item>
 
@@ -109,10 +127,12 @@ function ManageUsers() {
                         </div>
                     </Accordion.Header>
                     <Accordion.Body>
-                        <UsersTable users={userGroups.developers} group="developers" openDeleteModal={openDeleteModal}/>
+                        <UsersTable users={userGroups.developers} group="developers" openPasswordResetModal={openPasswordResetModal} openDeleteModal={openDeleteModal}/>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
+
+            {/* user delete modal */}
             <Modal show={showDeleteModal} onHide={handleCloseDeleteModal}>
                 <Modal.Header closeButton>
                 <Modal.Title>Are you sure you want to delete this user?</Modal.Title>
@@ -124,6 +144,22 @@ function ManageUsers() {
                 </Button>
                 <Button variant="danger" onClick={()=>handleDeleteUser(userToDeleteId)}>
                     Delete user
+                </Button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* user reset password modal */}
+            <Modal show={showResetPasswordModal} onHide={handleCloseResetPasswordModal}>
+                <Modal.Header closeButton>
+                <Modal.Title>Are you sure you want to reset this user's password?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>An email will be sent to user with instructions!</Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleCloseResetPasswordModal}>
+                    Close
+                </Button>
+                <Button variant="info" onClick={()=>handleResetPassword(userPasswordToResetEmail)}>
+                    Reset user's password
                 </Button>
                 </Modal.Footer>
             </Modal>
